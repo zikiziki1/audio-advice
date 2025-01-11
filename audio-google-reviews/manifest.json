@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Audio Google Reviews",
+  "version": "1.0",
+  "description": "Déposer et écouter des avis audio pour les établissements sur Google Maps.",
+  "permissions": ["activeTab", "microphone", "scripting", "storage"],
+  "host_permissions": ["https://www.google.com/maps/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icons/icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.google.com/maps/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
